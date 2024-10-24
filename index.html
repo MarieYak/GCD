@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDC</title>
+    <link rel="stylesheet" href="commun-scroll-hidden-sections-GCD.css">
+    <link rel="stylesheet" href="GCD.css">
+    <link rel="stylesheet" href="step-slider.css">
+  </head>
+
+  <body>
+    <main>
+      <!--SECTION 1-->
+      <section class="scroll-section section-1">
+        <h1>Wrapping Gifts</h1>
+        <div class="grid-container-section1">
+          <div class="grid-item-section1">
+            <p>You have a <b style="color: red;">100 cm red ribbon</b> and a <b style="color: green;">60 cm green ribbon </b>. You want to cut them into identical pieces without any leftover ribbon. The pieces should be as long as possible to create beautiful bows for your gifts.</p><br>
+            <p>How can you determine the optimal length for the pieces?</p><br>
+            <p>You can cut the ribbons where the cursor turns into a pointer and measure the lengths by dragging the ribbons.</p>  
+          </div>
+          
+              
+          <div class="grid-item-section1 steps">
+            <div id="svg-container">
+              <svg id="draggable-item" viewBox="0 0 650 250" preserveAspectRatio="xMinYMin meet" style="width:100%; height:auto;">
+                <g id="gr1">
+                  <rect id="item1" width="500" height="50" x="10" y="50" style="fill:red;stroke-width:1;stroke:red"/>
+                  
+                  <rect class="clickable red-line"  id="line1r" width="3" height="50" x="60" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line2r" width="3" height="50" x="110" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line3r" width="3" height="50" x="160" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line4r" width="3" height="50" x="210" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line5r" width="3" height="50" x="260" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line6r" width="3" height="50" x="310" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line7r" width="3" height="50" x="360" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line8r" width="3" height="50" x="410" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  <rect class="clickable red-line"  id="line9r" width="3" height="50" x="460" y="50" fill="red" stroke="transparent" stroke-width="4"/>
+                  </g>
+                <g id="gr2">
+                <rect id="item11" width="300" height="50" x="10" y="150" style="fill:green;stroke-width:1;stroke:green"/>
+                
+                <rect class="clickable green-line"  id="line1g" width="3" height="50" x="60" y="150" fill="green" stroke="transparent" stroke-width="4"/>
+                <rect class="clickable green-line"  id="line2g" width="3" height="50" x="110" y="150" fill="green" stroke="transparent" stroke-width="4"/>
+                <rect class="clickable green-line"  id="line3g" width="3" height="50" x="160" y="150" fill="green" stroke="transparent" stroke-width="4"/>
+                <rect class="clickable green-line"  id="line4g" width="3" height="50" x="210" y="150" fill="green" stroke="transparent" stroke-width="4"/>
+                <rect class="clickable green-line"  id="line5g" width="3" height="50" x="260" y="150" fill="green" stroke="transparent" stroke-width="4"/>
+                </g>
+              </svg>
+            </div>
+            <div class="answer-container" style="font-size: 1em;">
+              <div class="answer">
+                <p><b>My answer:</b></p>
+                <p>The longest length the pieces can have, without wasting any ribbon,is
+                  <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;"><input class="champ-input" type="text" id="response1a" size="3" 
+                    autocomplete="off" oninput="handleInput(event)"> cm.</div>
+                  
+                </p>
+              </div>
+              <div class="btn-container">
+                <button class="validate-button zoom" id="validate-Wrapping-Gifts">Done</button>
+              </div>
+              
+              <p id="result-Wrapping-Gifts" class="result"></p>
+            </div>
+          </div>
+        </div>
+        <button class="next-button">Next</button>
+      </section>
+
+      <!--SECTION 2-->
+      <section class="scroll-section section-2 hidden">
+        <h2>What algorithm can help us find the longest possible piece length?</h2>
+
+        <div class="grid-container-S2 ">
+          <div class="grid-item-section1" style="padding-top: 30px; justify-content: center; align-items: center;">
+            <!--LEFT SCROLL-->
+            <div class="slider-container" id="slider-container-S1">
+              <div class="slider">
+                <div class="card-container">
+                  <div class="card" id="card1">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 1</h2>
+                        <p>We want to know how many green ribbons fit into a red ribbon, or how many groups of 60 fit into 100?</p>
+                      </div>
+                      
+                    
+                      <div class="answer-container">
+                        <div class="answer">
+                          <p><b>My answer:</b> : 
+                          <input class="champ-input" type="text" id="response1b" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> groupe of <input class="champ-input" type="text" id="response1c" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm and a leftover piece of <input class="champ-input" type="text" id="response1d" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm.
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step1">Done</button>
+                        </div>
+                        <p id="warningMessage1" style="display:none;">Please fill in all the fields.</p>
+                        <p class="result" id="result-Step1"></p>
+                        <div class="explication explanation1"> 
+                          <p>Only one green ribbon of 60 cm fits into the red ribbon of 100 cm, and there’s a leftover piece of 40 cm. So, we keep the remainder 40.</p>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <button style="margin: 10px; display: flex; align-items: center;" class="scroll-btn next-btn" onclick="scrollToCard('next', 'slider-container-S1')">See Step 2 &#10095;</button>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                
+                <div class="card-container">
+                  <div class="card" id="card2">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 2</h2>
+                        <p>Now, we take the ribbon of 60 cm and the leftover piece of 40 cm, and again, we want to know how many groups of 40 cm fit into 60 cm?</p>
+                      </div>
+                      
+                      
+                      <div class="answer-container">
+                        <div class="answer">
+                          <p> <b>My answer:</b> : 
+                          <input class="champ-input" type="text" id="response1e" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> groupe of <input class="champ-input" type="text" id="response1f" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm and a leftover piece of <input class="champ-input" type="text" id="response1g" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm.
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step2">Done</button>
+                        </div>
+                        <p id="warningMessage2" style="display:none;">Please fill in all the fields.</p>
+
+                        <p class="result" id="result-Step2"></p>
+                        <div class="explication explanation2">
+                          <p>One group of 40 fit into 60 and there’s a leftover piece of 20 cm. Again, we keep the remainder 20.</p>
+                        </div>
+                      </div> 
+                      <div class="quiz-boutons-container">
+                        <div>
+                          <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S1')"> &#10094; Go back to Step 1</button>
+                        </div>
+                        <div>
+                          <button class="scroll-btn next-btn" onclick="scrollToCard('next', 'slider-container-S1')">See Step 3&#10095;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="card-container">
+                  <div class="card" id="card3">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 3</h2>
+                        <p>We continue and we want to know how many groups of 20 cm fit into 40 cm?</p>
+                      </div>
+                      
+                      <div class="answer-container">
+                        <div class="answer">
+                          <p> <b>My answer:</b> : 
+                          <input class="champ-input" type="text" id="response1h" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> groupe(s) of <input class="champ-input" type="text" id="response1i" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm and a leftover piece of <input class="champ-input" type="text" id="response1j" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> cm.
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step3">Done</button>
+                        </div>
+                        <p id="warningMessage3" style="display:none;">Please fill in all the fields.</p>
+
+                        <p class="result" id="result-Step3"></p>
+                        <div class="explication explanation3"> 
+                          <p>There are 2 groupes and this time there’s a remainder of 0. When there’s no more remainder, we stop.</p>
+                          
+                        </div>
+                      </div>
+                      <div class="quiz-boutons-container">  
+                        <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S1')"> &#10094; Go back to Step 2</button>
+                        
+                        <button class="scroll-btn next-btn" onclick="scrollToCard('next', 'slider-container-S1')">See conclusion &#10095;</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-container">
+                  <div class="card" id="card4">
+                    <div class="side">
+                      <div class="steps">
+                        <h3>Conclusion :</h3>
+                        <p>The last remainder before reaching zero is 20.</p>
+                          
+                        <p>So, 20 is the largest number that can exactly divide both 100 and 60 without leaving a remainder. </p>
+                        <p>In mathematics, this number is called </p>
+                        <p class="zoom gcd">the Greatest Common Divisor (GCD)</p>
+                        <p> also called, <span class="gcd">the Greatest Common Factor</span>.</p>
+                      </div>
+                      <div class="quiz-boutons-container">
+                        <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S1')"> &#10094; Go back to Step 3</button>
+                      </div>
+                    </div> 
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item-section1">
+            <!--ANIMATION-->
+            <div class="grid-item-section2 width450">
+              <div style="position: relative;">
+                <svg  viewBox="0 0 208 200" preserveAspectRatio="xMinYMin meet" style="width:100%; height:auto;">
+                  <rect  width="200" height="20" x="5" y="22" style="fill:red;stroke-width:1;stroke:red"opacity="0.5"/>
+                  <g id="gr1">
+                    <g id="T100"opacity="0">
+                      <text x="90" y="11" fill="black" font-size="10">
+                        100
+                      </text>
+                      <polyline points="5,20 5,15 204,15 204,20" style="fill:none;stroke:black;stroke-width:1"/>
+                    </g>
+                    
+                    <rect  width="120" height="20" x="5" y="22" style="fill:red;stroke-width:1;stroke:red"/>
+                    
+                    <rect width="2" height="22" x="45" y="21" fill="white"opacity="0"/>
+                    
+                    <rect width="2" height="22" x="85" y="21" fill="white"opacity="0"/>
+                    
+                    <g id="remainder40">
+                      <rect  width="80" height="20" x="125" y="22" style="fill:red;stroke-width:1;stroke:red"opacity="0.5"/>
+                      
+                      <rect  width="40" height="20" x="125" y="22" style="fill:red;stroke-width:1;stroke:red"/>
+                      
+                      <g id="R40-R20">
+                        
+                        
+                        <rect  width="40" height="20" x="165" y="22" style="fill:red;stroke-width:1;stroke:red"/>
+                      </g>
+                      
+                      <g id="T40"opacity="0">
+                        <polyline points="128,45 128,51 204,51 204,45" style="fill:none;stroke:black;stroke-width:1"/>
+                        <text x="155" y="62" fill="black" font-size="10">40</text>
+                      </g>
+                    </g>
+                  </g>
+
+                  <g id="gr2">
+                    <g id="ribbon60">
+                      <rect width="120" height="20" x="5" y="60" style="fill:green;stroke-width:1;stroke:green"opacity="0.5"/>
+                      <rect width="40" height="20" x="5" y="60" style="fill:green;stroke-width:1;stroke:green"/>
+                      <rect width="40" height="20" x="45" y="60" style="fill:green;stroke-width:1;stroke:green"/>
+                      <g id="T60"opacity="0">
+                        <text x="55" y="52" fill="black"font-size="10">
+                          60
+                        </text>
+                        <polyline points="5,58 5,54 124,54 124,58" style="fill:none;stroke:black;stroke-width:1"/>
+                      </g>
+                    </g>
+                    <g id="R20T20">
+                      <g id="remainder20">
+                        <rect width="40" height="20" x="85" y="60" style="fill:green;stroke-width:1;stroke:green">
+                      </g>
+                      <g id="T20" >
+                        <polyline points="85,85 85,90 125,90 125,85" style="fill:none;stroke:black;stroke-width:1"/>
+                        <text x="99" y="89" fill="black" font-size="10">20</text>
+                      </g> 
+                    </g> 
+                  </g>
+                  <g id="lines">
+                    <rect width="2" height="22" x="45" y="21" fill="white"/>
+                    <rect width="2" height="22" x="85" y="21" fill="white"/>
+                    <rect width="2" height="22" x="125" y="21" fill="white"/>
+                    <rect width="2" height="22" x="165" y="21" fill="white"/>
+                    <rect width="2" height="22" x="45" y="59" fill="white"/>
+                    <rect width="2" height="22" x="85" y="59" fill="white"/>
+                  </g>
+                </svg>
+              </div>
+
+              <div>
+                <button id="play-btn"class="validate-button zoom">
+                  Play
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="previous-button">Previous</button>
+          <button class="next-button">Next</button>
+        </div>
+      </section>
+
+      <!--SECTION 3-->
+      <section class="scroll-section section-3 hidden">
+        <div class="title" style="margin-bottom: 10px;">Euclid's algorithm offers a rapid way to determine the greatest common factor (GCF) of two or more whole numbers.</div>
+        <div class="challenge">
+          <!--<h2>Challenge !</h2>-->
+          <p class="title">Translate this into mathematical language!</p>
+          <p>Write 3 mathematical operations that correspond to the 3 steps you just saw.</p>
+        
+          <div class="grid-container" id="challenge">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"style="text-align:right; font-size:14px;">remainder</div>
+            <div class="grid-item">1/</div>
+            <div class="grid-item">
+              <input class="champ-input" type="text" id="response2" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response3" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> 
+            = </div>
+
+            <div class="grid-item left-align">
+              <input class="champ-input " type="text" id="response4" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response5" size="3"  autocomplete="off"
+              oninput="handleInput(event)">
+            </div>
+
+            <div class="grid-item">2/</div>
+            <div class="grid-item ">
+              <input class="champ-input" type="text" id="response6" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response7" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> = 
+            </div>
+            <div class="grid-item left-align">
+              <input class="champ-input" type="text" id="response8" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response9" size="3"  autocomplete="off"
+              oninput="handleInput(event)"></div>
+            <div class="grid-item">3/</div>
+            <div class="grid-item "><input class="champ-input" type="text" id="response10" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response11" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> = </div>
+            <div class="grid-item left-align">
+              <input class="champ-input" type="text" id="response12" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response13" size="3"  autocomplete="off"
+              oninput="handleInput(event)">
+            </div>
+          </div>
+        </div>
+        
+        <div class="challenge">The greatest common factor of 100 and 60 is <input class="champ-input" type="text" id="response28" size="3"  autocomplete="off"
+          oninput="handleInput(event)"></div></div>
+        <div class="btn-container">
+          <button class="validate-button zoom" id="validate-part3">Done</button>
+        </div>
+        <p id="result-Challenge" class="result"></p>
+        <div class="explication explanationAlgo">
+          <svg height="105" width="300">
+            <!--Step 1-->
+            <text id="el4"x="36" y="15" fill="black" font-size="20">1</text>
+            <text id="el3"x="0" y="40" fill="black" font-size="20">60</text>
+            <text id="el9"x="0" y="40" fill="green" font-size="20">60</text>
+            <text id="el1" x="35" y="40" fill="black" font-size="20">100</text>
+            <text id="el5" x="35" y="65" fill="black" font-size="20">-</text>
+            <text id="el6"x="48" y="65" fill="black" font-size="20">60</text>
+            <text id="el8"x="48" y="94" fill="black" font-size="20">40</text>
+            <text id="el11"x="48" y="94" fill="red" font-size="20">40</text>
+
+            <line id="el7"x1="47" y1="72" x2="76" y2="72" style="stroke:black;stroke-width:2" />
+            <polyline id="el2" points="30,46 30,20 74,20" style="fill:none;stroke:black;stroke-width:2" />
+            
+            <!--Step 2-->
+            <text id="el12"x="136" y="15" fill="black" font-size="20">1</text>
+            <text id="el17"x="100" y="40" fill="black" font-size="20">40</text>
+            <text id="el19"x="100" y="40" fill="red" font-size="20">40</text>
+            
+            <!--<text x="135" y="40" fill="black" font-size="20">60</text>-->
+            <text id="el13"x="125" y="65" fill="black" font-size="20">-</text>
+            <text id="el14"x="138" y="65" fill="black" font-size="20">40</text>
+            <text id="el16"x="138" y="94" fill="black" font-size="20">20</text>
+            <circle id="gcdC"r="14" cx="151" cy="88" fill="red" />
+            <text id="el18"x="138" y="94" fill="green" font-size="20">20</text>
+
+            <line id="el15"x1="137" y1="72" x2="166" y2="72" style="stroke:black;stroke-width:2" />
+            <polyline id="el10"points="130,46 130,20 174,20" style="fill:none;stroke:black;stroke-width:2" />
+
+            <!--Step 3-->
+            <text id="el22"x="236" y="15" fill="black" font-size="20">2</text>
+            <!--<text x="200" y="40" fill="black" font-size="20">20</text>-->
+            <!--<text x="235" y="40" fill="black" font-size="20">40</text>-->
+            <text id="el23"x="225" y="65" fill="black" font-size="20">-</text>
+            <text id="el24"x="238" y="65" fill="black" font-size="20">40</text>
+            <text id="el26" x="250" y="94" fill="black" font-size="20">0</text>
+
+            <line id="el25"x1="237" y1="72" x2="266" y2="72" style="stroke:black;stroke-width:2" />
+            <polyline id="el21"points="230,46 230,20 274,20" style="fill:none;stroke:black;stroke-width:2" />
+          </svg>
+        </div>
+
+        <div>
+          <button class="previous-button">Previous</button>
+          <button class="next-button">Next</button>
+        </div>
+      </section>
+
+      <!--SECTION 4-->
+      <section class="scroll-section section-4 hidden">
+        <div class="grid-container-section2">
+          <div class="grid-item-section2">
+            <h3>Try Another Real World Problem:</h3>
+            <p>Santa's elves have a big task: they need to pack square pallets full of gifts into Santa's sleigh, which is <b>45 meters long</b> and <b>27 meters wide</b>. They want to use the largest possible square pallets so they can fit as many gifts as possible into the sleigh without any leftover space.</p>
+            <p>Imagine this rectangle represents Santa's sleigh. Try drawing square pallets inside it to figure out the biggest size they can be.</p>
+          </div>
+          <div class="grid-item-section2 canva-container">
+            <div class="canva-container">
+              <div id="canvas-container"></div>
+            </div>
+            <button class="validate-button"id="clear-button">Clear</button>
+
+          </div>
+          
+          <div class="grid-item-section2" id="santa-problem">
+          
+            <p><b>My answer:</b> The size of the square pallets that will perfectly fit inside the sleigh without wasting any space is <input class="champ-input" type="text" id="response14" size="3"  autocomplete="off"
+            oninput="handleInput(event)"> m.</p>
+            
+  
+            <div class="btn-container">
+              <button class="validate-button zoom" id="validate-square-size">Done</button>
+            </div>
+            <p id="result-Square-Size" class="result"></p>
+          </div>
+        </div>
+        
+        <div>
+          <button class="previous-button">Previous</button>
+          <button class="next-button">Next</button>
+        </div>
+      </section>
+      <!--SECTION 5-->
+      <section class="scroll-section section-5 hidden">
+        <div class="title"><p><b>Let's see if the algorithm we used to find the longest possible piece length of the ribbons will also work to cover Santa's sleigh with the largest possible square pallets.</b></p></div>
+        <div class="grid-container-S5">
+          <div class="grid-item-section1">
+            <p style="font-style: italic; font-family: Georgia, 'Times New Roman', Times, serif;">
+              Santa's sleigh is 45 m long and 27 m wide. Our goal is to cover this rectangle with square pallets of the largest possible size. Therefore, we are looking for the dimensions of the largest square that can perfectly tile this rectangle without leaving any gaps.
+            </p>
+            
+            <!--LEFT SCROLL-->
+            <div class="slider-container" id="slider-container-S2">
+              <div class="slider">
+                <div class="card-container">
+                  <div class="card" id="card5">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 1</h2>
+                        <p>Find the largest possible square.</p> 
+                      </div>
+
+                      <div class="answer-container">
+                        <div class="answer"> 
+                          <p>We can fit <input class="champ-input" type="text" id="response2b" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> square(s) of side 
+                            <input class="champ-input" type="text" id="response2c" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m into the rectangle that is 45 m long and 27 m wide, but there remains a rectangle with sides of <input class="champ-input" type="text" id="response2d" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m wide and <input class="champ-input" type="text" id="response2e" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m height.
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step4">Done</button>
+                        </div>
+                        <p id="warningMessage4" style="display:none;">Please fill in all the fields.</p>
+                        <p class="result" id="result-Step4"></p>
+                        <!--<div class="explication explanation4"> 
+                          <p>Only one green ribbon of 60 cm fits into the red ribbon of 100 cm, and there’s a leftover piece of 40 cm. So, we keep the remainder 40.</p>
+                        </div>-->
+                      </div>
+                      <div>
+                        
+                        <button style="margin: 10px; display: flex; align-items: center;" class="scroll-btn next-btn" onclick="scrollToCard('next', 'slider-container-S2')">See Step 2 &#10095;</button>
+                        
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                
+                <div class="card-container">
+                  <div class="card" id="card6">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 2</h2>
+                        <p> Repeat with the new square</p> 
+                      </div>
+                      <div class="answer-container">
+                        <div class="answer">
+                          <p>We can fit <input class="champ-input" type="text" id="response2f" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> square(s) of side <input class="champ-input" type="text" id="response2g" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m into the remaining rectangle, but there remains another rectangle with sides of <input class="champ-input" type="text" id="response2h" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m wide and <input class="champ-input" type="text" id="response2i" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m height.</p>
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step5">Done</button>
+                        </div>
+                        <p id="warningMessage5" style="display:none;">Please fill in all the fields.</p>
+
+                        <p class="result" id="result-Step5"></p>
+                        <!--<div class="explication explanation2-2">
+                          <p>One group of 40 fit into 60 and there’s a leftover piece of 20 cm. Again, we keep the remainder 20.</p>
+                        </div>-->
+                      </div> 
+                      <div class="quiz-boutons-container">
+                        <div>
+                          <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S2')"> &#10094; Go back to Step 1</button>
+                        </div>
+                        <div>
+                          <button class="scroll-btn next-btn" onclick="scrollToCard('next','slider-container-S2')">See Step 3&#10095;</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="card-container">
+                  <div class="card" id="card7">
+                    <div class="side">
+                      <div class="steps">
+                        <h2>STEP 3</h2>
+                        <p>Tile the last remaining rectangle.</p>  
+                      </div>
+                      
+                      <div class="answer-container">
+                        <div class="answer">  
+                          <p>
+                            This last remaining rectangle can be completely tiled with <input class="champ-input" type="text" id="response2j" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> squares of side <input class="champ-input" type="text" id="response2k" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> m, and there’s <input class="champ-input" type="text" id="response2l" size="3"  autocomplete="off"
+                            oninput="handleInput(event)"> left.
+                          </p>
+                        </div>
+                        <div class="btn-container">
+                          <button class="validate-button" id="validate-Step6">Done</button>
+                        </div>
+                        <p id="warningMessage6" style="display:none;">Please fill in all the fields.</p>
+
+                        <p class="result" id="result-Step6"></p>
+                        <!--<div class="explication explanation3-2"> 
+                        <p>There are 2 groupes and this time there’s a remainder of 0. When there’s no more remainder, we stop.</p>
+                        
+                        </div>-->
+                      </div>
+                      <div class="quiz-boutons-container">  
+                        <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S2')"> &#10094; Go back to Step 2</button>
+                        
+                        <button class="scroll-btn next-btn" onclick="scrollToCard('next', 'slider-container-S2')">See conclusion &#10095;</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-container">
+                  <div class="card" id="card8">
+                    <div class="side">
+                      <div class="steps">
+                        <h3>Conclusion :</h3>
+                        <p>The last remainder before reaching zero is 9.</p>
+                          
+                        <p>9 is the largest number that can exactly divide both 27 and 45 without leaving a remainder. </p>
+                        
+                         <p> So, <span class="gcd">the Greatest Common Divisor</span> of 45 and 27 is 9.</p>
+
+                      </div>
+                      <div class="quiz-boutons-container">
+                        <button class="scroll-btn prev-btn" onclick="scrollToCard('prev', 'slider-container-S2')"> &#10094; Go back to Step 3</button>
+                      </div>
+                    </div> 
+                  </div>
+                </div> 
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item-section1"> 
+            <div style="position: relative;">
+              <svg class="santaSleight" viewBox="0 0 320 500" preserveAspectRatio="xMinYMin meet">
+                <polyline points="40,35 40,30 310,30 310,35" style="fill:none;stroke:black;stroke-width:1"/>
+                <text x="165" y="27" fill="black" font-size="15">
+                  27
+                </text>
+    
+                <polyline points="35,40 30,40 30,490 35,490" style="fill:none;stroke:black;stroke-width:1"/>
+                <text x="8" y="250" fill="black" font-size="15">
+                  45
+                </text>
+                
+                <rect  width="270" height="450" x="40" y="40" style="fill:rgb(249, 249, 249);stroke-width:1;stroke:grey;"/>
+    
+                <rect id="sq27" width="270" height="270" x="40" y="40" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T27"x="145" y="190" fill="black" font-size="50">
+                  27
+                </text>
+    
+                <rect id="sq18" width="180" height="180" x="40" y="310" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T18" x="105" y="410" fill="black" font-size="40">
+                  18
+                </text>
+                <rect id="sq9" width="90" height="90" x="220" y="310" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9"x="255" y="365" fill="black" font-size="30">
+                  9
+                </text>
+                <rect id="sq9b" width="90" height="90" x="220" y="400" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9b"x="255" y="455" fill="black" font-size="30">9</text>
+                <!--LES SQ9-->
+    
+                <g id="s4"><rect id="sq9a" width="90" height="90" x="130" y="310" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9a"x="165" y="365" fill="black" font-size="30">9</text></g>
+                
+                <g id="s3"><rect id="sq9c" width="90" height="90" x="40" y="310" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9c"x="75" y="365" fill="black" font-size="30">9</text></g>
+                
+                <g id="s2"><rect id="sq9d" width="90" height="90" x="40" y="400" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9d"x="75" y="455" fill="black" font-size="30">9</text></g>
+                
+                <g id="s1"><rect id="sq9e" width="90" height="90" x="130" y="400" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9e"x="165" y="455" fill="black" font-size="30">9</text></g>
+    
+                <g id="s7"><rect id="sq9f" width="90" height="90" x="40" y="220" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9F"x="75" y="275" fill="black" font-size="30">9</text></g>
+                
+                <g id="s10"><rect id="sq9g" width="90" height="90" x="40" y="130" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9g"x="75" y="185" fill="black" font-size="30">9</text></g>
+                
+                <g id="s13"><rect id="sq9h" width="90" height="90" x="40" y="40" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9h"x="75" y="95" fill="black" font-size="30">9</text></g>
+    
+                <g id="s6"><rect id="sq9j" width="90" height="90" x="130" y="220" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9j"x="165" y="275" fill="black" font-size="30">9</text></g>
+    
+                <g id="s9"><rect id="sq9k" width="90" height="90" x="130" y="130" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9k"x="165" y="185" fill="black" font-size="30">9</text></g>
+    
+                <g id="s12"><rect id="sq9l" width="90" height="90" x="130" y="40" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9l"x="165" y="95" fill="black" font-size="30">9</text></g>
+    
+                <g id="s5"><rect id="sq9m" width="90" height="90" x="220" y="220" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9m"x="255" y="275" fill="black" font-size="30">9</text></g>
+    
+                <g id="s8"><rect id="sq9n" width="90" height="90" x="220" y="130" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9n"x="255" y="185" fill="black" font-size="30">9</text></g>
+    
+                <g id="s11"><rect id="sq9o" width="90" height="90" x="220" y="40" style="fill:rgba(82, 190, 128);;stroke-width:2;stroke:#145a32;"/>
+                <text id="T9o"x="255" y="95" fill="black" font-size="30">9</text></g>
+              </svg>
+            </div>
+    
+            <div>
+              <button id="play-btn-S4"class="validate-button zoom">
+                Play
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button class="previous-button">Previous</button>
+          <button class="next-button">Next</button>
+        </div>
+      </section>
+
+      <!--SECTION 6-->
+      <section class="scroll-section section-6 hidden">
+        <div class="challenge">
+          <h4>Write 3 mathematical operations that correspond to the 3 steps you just saw.</h4>
+          <div class="grid-container" id="challenge2">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <!--<div class="grid-item">quotient</div>-->
+            <div class="grid-item"style="text-align:right;">remainder</div>
+            <div class="grid-item">1/</div>
+            <div class="grid-item"><input class="champ-input" type="text" id="response15" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response16" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> = </div>
+  
+            <!--<div class="grid-item"> 
+            </div>-->
+            <div class="grid-item left-align"><input class="champ-input" type="text" id="response17" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response18" size="3"  autocomplete="off"
+              oninput="handleInput(event)"></div>
+            
+              <div class="grid-item">2/</div>
+            
+              <div class="grid-item">
+                <input class="champ-input" type="text" id="response19" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response20" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> = </div>
+            
+              <!--<div class="grid-item">
+                
+              </div>-->
+            <div class="grid-item left-align"><input class="champ-input" type="text" id="response21" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response22" size="3"  autocomplete="off"
+              oninput="handleInput(event)"></div>
+            <div class="grid-item">3/</div>
+            <div class="grid-item">
+              <input class="champ-input" type="text" id="response23" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> ÷ <input class="champ-input" type="text" id="response24" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> = </div>
+            <!--<div class="grid-item">
+              
+            </div>-->
+            <div class="grid-item left-align"><input class="champ-input" type="text" id="response25" size="3"  autocomplete="off"
+              oninput="handleInput(event)"> + <input class="champ-input" type="text" id="response26" size="3"  autocomplete="off"
+              oninput="handleInput(event)"></div>
+          </div>
+        </div>
+        
+        <div class="challenge">The greatest common factor of 45 and 27 is <input class="champ-input" type="text" id="response27" size="3"  autocomplete="off"
+          oninput="handleInput(event)"></div></div>
+        
+        <div class="btn-container">
+          <button class="validate-button zoom" id="validate-part5">Done</button>
+        </div>
+        <p id="result-Challenge2" class="result">
+          <div class="explication explanationAlgo2">
+            <svg height="105" width="300">
+              <!--Step 1-->
+              <text id="el4x"x="38" y="15" fill="black" font-size="20">1</text>
+              <text id="el3x"x="0" y="40" fill="black" font-size="20">27</text>
+              <text id="el9x"x="0" y="40" fill="green" font-size="20">27</text>
+              <text id="el1x" x="38" y="40" fill="black" font-size="20">45</text>
+              <text id="el5x" x="28" y="65" fill="black" font-size="20">-</text>
+              <text id="el6x"x="39" y="65" fill="black" font-size="20">27</text>
+              <text id="el8x"x="39" y="94" fill="black" font-size="20">18</text>
+              <text id="el11x"x="39" y="94" fill="red" font-size="20">18</text>
+  
+              <line id="el7x"x1="38" y1="72" x2="68" y2="72" style="stroke:black;stroke-width:2" />
+              <polyline id="el2x" points="30,46 30,20 74,20" style="fill:none;stroke:black;stroke-width:2" />
+              
+              <!--Step 2-->
+              <text id="el12x"x="136" y="15" fill="black" font-size="20">1</text>
+              <text id="el17x"x="100" y="40" fill="black" font-size="20">18</text>
+              <text id="el19x"x="100" y="40" fill="red" font-size="20">18</text>
+              
+              <!--<text x="135" y="40" fill="black" font-size="20">60</text>-->
+              <text id="el13x"x="125" y="65" fill="black" font-size="20">-</text>
+              <text id="el14x"x="138" y="65" fill="black" font-size="20">18</text>
+              <text id="el16x"x="145" y="94" fill="black" font-size="20">9</text>
+              <circle id="gcdCx"r="14" cx="151" cy="88" fill="red" />
+              <text id="el18x"x="145" y="94" fill="green" font-size="20">9</text>
+  
+              <line id="el15x"x1="137" y1="72" x2="166" y2="72" style="stroke:black;stroke-width:2" />
+              <polyline id="el10x"points="130,46 130,20 174,20" style="fill:none;stroke:black;stroke-width:2" />
+  
+              <!--Step 3-->
+              <text id="el22x"x="236" y="15" fill="black" font-size="20">2</text>
+              <!--<text x="200" y="40" fill="black" font-size="20">20</text>-->
+              <!--<text x="235" y="40" fill="black" font-size="20">40</text>-->
+              <text id="el23x"x="225" y="65" fill="black" font-size="20">-</text>
+              <text id="el24x"x="238" y="65" fill="black" font-size="20">18</text>
+              <text id="el26x" x="250" y="94" fill="black" font-size="20">0</text>
+  
+              <line id="el25x"x1="237" y1="72" x2="266" y2="72" style="stroke:black;stroke-width:2" />
+              <polyline id="el21x"points="230,46 230,20 274,20" style="fill:none;stroke:black;stroke-width:2" />
+            </svg>
+          </div>
+        </p>
+        
+        
+        
+
+        
+        <div>
+          <button class="previous-button">Previous</button>
+          <!--<button class="next-button">Next</button>-->
+        </div>
+      </section>
+  
+    </main>
+
+  
+    <!--FONCTIONS COMMUNES POUR TOUT LE SITE-->
+    <script src="commun-scroll-hidden-sections-GCD-old.js"></script>
+    
+    <script src="draggable-svg-groupes.js"></script>
+    <script src="GCD-script.js"></script>
+    
+    <!--<script src="lignes-cliquables.js"></script>-->
+    <script src="dessin-canvas.js"></script>
+   <!----<script src="validate-section3.js"></script>-->
+   <script src="anim.js"></script>
+   <script src="anim-S4.js"></script>
+   <script src="step-slider.js"></script>
+  </body>
+</html>
